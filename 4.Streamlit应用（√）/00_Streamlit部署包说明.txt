@@ -1,0 +1,48 @@
+TDXd-Related Grade ≥3 Adverse Effect Prediction Model Streamlit Deployment Package
+
+一、当前文件夹用途
+
+本文件夹用于部署“严重不良反应（Severe Adverse Effect）预测模型”Streamlit网页应用。
+应用基于8个变量输入，输出AdaBoost、SVC、SVM_RBF三个基础模型及最终集成模型预测概率，并按照内部Youden阈值给出低风险/中风险/高风险提示和临床辅助指导意见。
+
+二、主文件
+
+1. app.py
+   Streamlit主程序。
+
+2. requirements.txt
+   Streamlit Cloud部署所需依赖。
+   当前已限制numpy<2，用于避免部分部署环境中pyarrow/bottleneck与NumPy 2.x兼容性警告。
+
+3. README_Streamlit部署说明.md
+   本地运行、GitHub上传和Streamlit Cloud部署步骤。
+
+三、数据文件
+
+data/train_data_ae3_all.csv
+   用于在Streamlit启动时重建AdaBoost、SVC、SVM_RBF和Final Ensemble。
+
+data/sample_batch_template.csv
+   批量预测上传模板。
+
+四、展示图文件
+
+assets/global/
+   全局SHAP、特征重要性、SZL/ZN解释对比等PDF。
+
+assets/pdp/
+   PDP部分依赖图PDF。
+
+assets/local/
+   高低风险患者SHAP瀑布图、力图、LIME局部解释PDF。
+
+五、本地运行命令
+
+cd "/Users/mac/Desktop/test/codex/16.8个变量的shap+streamlit/4.SHAP+Streamlit（）/4.Streamlit应用（√）"
+pip install -r requirements.txt
+streamlit run app.py
+
+六、临床使用提示
+
+该模型用于严重不良反应风险的辅助评估，不替代医生临床判断。
+高风险患者建议加强治疗前评估、实验室指标监测、症状宣教和随访频率；低风险患者仍需按规范进行常规监测。

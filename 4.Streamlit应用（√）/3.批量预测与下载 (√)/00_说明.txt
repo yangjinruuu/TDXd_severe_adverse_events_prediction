@@ -1,0 +1,20 @@
+已完成：批量预测与下载页面。
+
+对应主程序：
+../app.py
+
+功能：
+1. 下载批量预测模板：
+../data/sample_batch_template.csv
+
+2. 上传包含8个变量的CSV。
+
+3. 输出：
+- AdaBoost预测概率
+- SVC预测概率
+- SVM_RBF预测概率
+- Final_Ensemble最终集成概率
+- Risk_Level风险分层
+- Risk_Threshold风险阈值
+
+4. 支持下载批量预测结果CSV。
